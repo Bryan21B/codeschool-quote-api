@@ -1,0 +1,18 @@
+{
+  "name": "quote-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Bryan Blanchot",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.6",
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
