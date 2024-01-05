@@ -38,6 +38,7 @@ app.post("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
         quotes.push(newQuote)
         res.send({ quote: newQuote })
     }
+    res.status(400).send()
 })
 
 app.use(express.static("public"))
