@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Quote API</title>
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" type="image/x-icon" ç href="favicon.ico" />
+    </head>
+    <body>
+        <h1>Quote API</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="add-quote.html">Add a New Quote</a>
+            <a href="add-user.html">Add a New User</a>
+        </nav>
+        <h2>Add a New User</h2>
+        <div class="inputs">
+            <label for="firstname">First name:</label>
+            <input id="firstname" value="" type="text" />
+            <label for="lastname">Last name:</label>
+            <input id="lastname" value="" type="text" />
+            <label for="email">Email</label>
+            <input type="email" value="" id="email" />
+        </div>
+        <div>
+            <button id="create-user">Create new user</button>
+        </div>
+        <div id="new-user"></div>
+        <script src="add-user.js"></script>
+    </body>
+</html>
