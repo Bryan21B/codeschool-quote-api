@@ -17,17 +17,19 @@
             <a href="add-quote.html">Add a New Quote</a>
             <a href="add-user.html">Add a New User</a>
         </nav>
-        <h2>Add a New Quote</h2>
+        <h2>Add a New User</h2>
         <div class="inputs">
-            <label for="quote">Quote text:</label>
-            <input id="quote" value="" />
-            <label for="person">Person:</label>
-            <input id="person" value="" />
+            <label for="firstname">First name:</label>
+            <input id="firstname" value="" type="text" />
+            <label for="lastname">Last name:</label>
+            <input id="lastname" value="" type="text" />
+            <label for="email">Email</label>
+            <input type="email" value="" id="email" />
         </div>
         <div>
-            <button id="submit-quote">Submit Your Quote</button>
+            <button id="ceate-user">Create new user</button>
         </div>
-        <div id="new-quote"></div>
-        <script src="add-quote.js"></script>
+        <div id="new-user"></div>
+        <script src="add-user.js"></script>
     </body>
 </html>
