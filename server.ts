@@ -18,9 +18,18 @@ app.get(
     }
 )
 
-app.get("/api/quotes", (_req: Request, res: Response, _next: NextFunction) => {
-    const allQuotes: { quotes: Quote[] } = { quotes: quotes }
-    res.send(allQuotes)
+app.get("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
+    if (req.query.person) {
+        const authorQuotes: { quotes: Quote[] } = {
+            quotes: quotes.filter((quote) => {
+                return quote.person === req.query.person
+            }),
+        }
+        res.send(authorQuotes)
+    } else {
+        const allQuotes: { quotes: Quote[] } = { quotes: quotes }
+        res.send(allQuotes)
+    }
 })
 
 app.use(express.static("public"))
