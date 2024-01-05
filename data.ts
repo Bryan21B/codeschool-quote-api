@@ -4,6 +4,20 @@ export interface Quote {
     person: string
 }
 
+export interface User {
+    id: number
+    firstName: string
+    lastName: string
+}
+
+export const users: User[] = [
+    {
+        id: 1,
+        firstName: "Bryan",
+        lastName: "Blanchot",
+    },
+]
+
 export const quotes: Quote[] = [
     {
         id: 1,
