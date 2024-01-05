@@ -30,5 +30,15 @@ app.get("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
     }
 })
 
+app.post("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
+    const person = String(req.query.person)
+    const quote = String(req.query.quote)
+    if (person && quote) {
+        const newQuote: Quote = { quote, person }
+        quotes.push(newQuote)
+        res.send({ quote: newQuote })
+    }
+})
+
 app.use(express.static("public"))
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
