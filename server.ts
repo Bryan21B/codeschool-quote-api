@@ -28,9 +28,9 @@ app.get("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
 })
 
 app.post("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
-    const person = String(req.query.person)
-    const quote = String(req.query.quote)
-    if (person && quote) {
+    const person: string = String(req.query.person)
+    const quote: string = String(req.query.quote)
+    if (person != undefined && quote != undefined) {
         const id = findNextAvailableId(quotes)
         const newQuote: Quote = { quote, person, id }
         quotes.push(newQuote)
@@ -42,7 +42,7 @@ app.post("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
 app.put("/api/quotes", (req: Request, res: Response) => {
     const id = Number(req.query.id)
     const quote = String(req.query.quote)
-    if (id && quote) {
+    if (id != undefined && quote != undefined) {
         const index: number = findQuoteIndexByID(quotes, id)
         if (index >= 0) {
             quotes[index].quote = quote
