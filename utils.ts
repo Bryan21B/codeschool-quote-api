@@ -1,4 +1,4 @@
-import { Quote } from "./data"
+import { Quote, User } from "./data"
 
 export const getRandomQuote = (arr: Quote[]): Quote => {
     return arr[Math.floor(Math.random() * arr.length)]
@@ -8,7 +8,7 @@ export const filterQuotesByPerson = (quotesArray: Quote[], personName: any): Quo
     return quotesArray.filter((quote) => quote.person === personName)
 }
 
-export const findNextAvailableId = (array: Quote[]): number => {
+export const findNextAvailableId = (array: Quote[] | User[]): number => {
     // Use the map function to create an array of ids,
     // then use the spread operator to apply Math.max to it
     const maxId = Math.max(...array.map((item) => item.id))
