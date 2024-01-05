@@ -71,5 +71,17 @@ app.get("/api/users", (req: Request, res: Response, _next: NextFunction) => {
     }
 })
 
+app.post("/api/users", (req: Request, res: Response, _next: NextFunction) => {
+    const firstName: string = String(req.query.firstName)
+    const lastName: string = String(req.query.lastName)
+    if (firstName != undefined && lastName != undefined) {
+        const id = findNextAvailableId(users)
+        const newUser: User = { id, firstName, lastName }
+        users.push(newUser)
+        res.send({ user: newUser })
+    }
+    res.status(400).send()
+})
+
 app.use(express.static("public"))
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
