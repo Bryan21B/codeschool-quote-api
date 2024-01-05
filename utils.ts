@@ -4,10 +4,7 @@ export const getRandomQuote = (arr: Quote[]): Quote => {
     return arr[Math.floor(Math.random() * arr.length)]
 }
 
-export const filterQuotesByPerson = (
-    quotesArray: Quote[],
-    personName: any
-): Quote[] => {
+export const filterQuotesByPerson = (quotesArray: Quote[], personName: any): Quote[] => {
     return quotesArray.filter((quote) => quote.person === personName)
 }
 
@@ -18,4 +15,9 @@ export const findNextAvailableId = (quotesArray: Quote[]): number => {
 
     // The next available id will be maxId + 1
     return maxId + 1
+}
+
+export const findQuoteIndexByID = (quotesArray: Quote[], idToFind: number): number => {
+    const index = quotesArray.findIndex((item) => item.id === idToFind)
+    return index // This will return -1 if the quote is not found
 }
