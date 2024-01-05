@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express"
 import { Quote, quotes } from "./data"
+import { filterQuotesByPerson, getRandomQuote } from "./utils"
 
 import express from "express"
-import { getRandomQuote } from "./utils"
 
 const app = express()
 
@@ -21,9 +21,7 @@ app.get(
 app.get("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
     if (req.query.person) {
         const authorQuotes: { quotes: Quote[] } = {
-            quotes: quotes.filter((quote) => {
-                return quote.person === req.query.person
-            }),
+            quotes: filterQuotesByPerson(quotes, req.query.person),
         }
         res.send(authorQuotes)
     } else {
