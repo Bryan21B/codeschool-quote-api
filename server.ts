@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response } from "express"
 import { Quote, quotes } from "./data"
-import { filterQuotesByPerson, getRandomQuote } from "./utils"
+import {
+    filterQuotesByPerson,
+    findNextAvailableId,
+    getRandomQuote,
+} from "./utils"
 
 import express from "express"
 
@@ -34,7 +38,8 @@ app.post("/api/quotes", (req: Request, res: Response, _next: NextFunction) => {
     const person = String(req.query.person)
     const quote = String(req.query.quote)
     if (person && quote) {
-        const newQuote: Quote = { quote, person }
+        const id = findNextAvailableId(quotes)
+        const newQuote: Quote = { quote, person, id }
         quotes.push(newQuote)
         res.send({ quote: newQuote })
     }
