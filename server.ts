@@ -47,11 +47,12 @@ app.put("/api/quotes", (req: Request, res: Response) => {
         if (index >= 0) {
             quotes[index].quote = quote
             res.send({ quote: quotes[index] })
+        } else {
+            res.status(404).send("Quote not found")
         }
-        res.status(404).send("Quote not found")
+    } else {
+        res.status(400).send()
     }
-
-    res.status(400).send()
 })
 
 app.use(express.static("public"))
