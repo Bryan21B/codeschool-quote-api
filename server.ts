@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express"
-import { Quote, quotes } from "./data"
+import { Quote, User, quotes, users } from "./data"
 import { filterQuotesByPerson, findNextAvailableId, findQuoteIndexByID, getRandomQuote } from "./utils"
 
 import express from "express"
@@ -52,6 +52,22 @@ app.put("/api/quotes", (req: Request, res: Response) => {
         }
     } else {
         res.status(400).send()
+    }
+})
+
+app.get("/api/users", (req: Request, res: Response, _next: NextFunction) => {
+    if (req.query.id) {
+        const user = users.find((user) => {
+            return user.id === Number(req.query.id)
+        })
+        if (user != undefined) {
+            res.send(user)
+        } else {
+            res.status(404).send()
+        }
+    } else {
+        const allUsers: { users: User[] } = { users }
+        res.send(allUsers)
     }
 })
 
